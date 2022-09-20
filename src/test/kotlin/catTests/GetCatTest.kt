@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test
 import steps.CatSteps.addCat
 import steps.CatSteps.getCat
 import utils.extractAs
+import utils.getId
 
 @Epic("Котик")
 @Feature("Получение котика")
@@ -25,7 +26,7 @@ class GetCatTest : BaseTest() {
     @DisplayName("Получение котика")
     fun deleteSimpleCat() {
         val cat = Cat(name = "plotva", breed = "II — RAG")
-        val catId = addCat(cat).extractAs<CatResponse>().id
+        val catId = addCat(cat).getId()
         When {
             getCat(catId)
         } Then {

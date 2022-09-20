@@ -2,6 +2,7 @@ package utils
 
 import io.restassured.response.Response
 import io.restassured.response.ValidatableResponse
+import java.util.*
 
 //Функция-расширение для преобразования тела ответа в класс
 inline fun <reified T> ValidatableResponse.extractAs(): T {
@@ -11,4 +12,9 @@ inline fun <reified T> ValidatableResponse.extractAs(): T {
 //Функция-расширение для преобразования тела ответа в класс
 inline fun <reified T> Response.extractAs(): T {
     return this.then().extract().body().`as`(T::class.java)
+}
+
+//Функция-расширение для получения id из тела ответа
+fun Response.getId(path: String = "id"): UUID {
+    return this.jsonPath().getUUID(path)
 }
