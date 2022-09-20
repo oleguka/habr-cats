@@ -24,7 +24,7 @@ class UpdateCatTest : BaseTest() {
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("У котика отображаются обновленные поля")
-    fun deleteSimpleCat() {
+    fun updateSimpleCat() {
         val cat = Cat(name = "paule", breed = "III — RUS")
         val updatedCat = Cat(name = "paulie", breed = "II — SBI")
         val catId = addCat(cat).extractAs<CatResponse>().id

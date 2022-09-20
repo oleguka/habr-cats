@@ -24,7 +24,7 @@ class GetCatTest : BaseTest() {
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Получение котика")
-    fun deleteSimpleCat() {
+    fun getSimpleCat() {
         val cat = Cat(name = "plotva", breed = "II — RAG")
         val catId = addCat(cat).getId()
         When {
